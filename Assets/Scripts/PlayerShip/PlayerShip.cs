@@ -9,12 +9,18 @@ namespace SpaceShooter
 		[SerializeField]
 		private ShipInput shipInput;
 		[SerializeField]
+		private Rigidbody2D shipRigidbody;
+		[SerializeField]
+		private ObjectTagsComponent tagsComponent;
+		[SerializeField]
 		private ShipVisualComponent[] visualComponents;
 		[SerializeField]
 		private ShipSimulationComponent[] simulationComponents;
 
 		public ShipInputData LatestInput { get; private set; }
-		
+		public Vector2 SimulationPosition => shipRigidbody.position;
+		public ObjectTags Tags => tagsComponent.Tags;
+
 		private void Start()
 		{
 			shipInput.Initialize();

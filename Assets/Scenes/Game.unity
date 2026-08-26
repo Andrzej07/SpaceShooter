@@ -5326,6 +5326,51 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &353108200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353108202}
+  - component: {fileID: 353108201}
+  m_Layer: 0
+  m_Name: ProjectilePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &353108201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353108200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b89c83ad34bc4fd3bda53b184efe753f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 7477554558869712304, guid: 2e5cdc335e3dc854382c32d31bc9699d, type: 3}
+--- !u!4 &353108202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353108200}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.167038, y: -2.5992157, z: 20.690695}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5671,6 +5716,8 @@ GameObject:
   - component: {fileID: 1309013613}
   - component: {fileID: 1309013611}
   - component: {fileID: 1309013612}
+  - component: {fileID: 1309013614}
+  - component: {fileID: 1309013615}
   m_Layer: 0
   m_Name: PlayerFighter
   m_TagString: Untagged
@@ -5735,6 +5782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveActionName: Move
+  shootActionName: Attack
 --- !u!114 &1309013612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5768,11 +5816,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipInput: {fileID: 1309013611}
+  shipRigidbody: {fileID: 1309013610}
+  tagsComponent: {fileID: 1309013615}
   visualComponents:
   - {fileID: 8233016146703386451}
   - {fileID: 8233016146703386452}
   simulationComponents:
   - {fileID: 1309013612}
+  - {fileID: 1309013614}
+--- !u!114 &1309013614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309013607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6641bbb89d4c8181d772826ef28dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletStartOffset: {x: 5, y: 0}
+  projectilePool: {fileID: 353108201}
+  timeBetweenBullets: 0.25
+--- !u!114 &1309013615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309013607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3efe770257493e8209de7c9aeabf8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags: -1
 --- !u!1001 &1466675662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6383,3 +6462,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 53504684}
   - {fileID: 1309013608}
+  - {fileID: 353108202}
