@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4963d9d966a84ed5901020f9da98ad72, type: 3}
+  m_Name: Asteroids Configuration
+  m_EditorClassIdentifier: 
+  presets:
+  - mesh: {fileID: 1586428044625075342, guid: 78499d97230fe0748a3fc15499c77d48, type: 3}
+    colliderShape:
+    - {x: 6.4021673, y: 0.76411414}
+    - {x: 6.1574364, y: 1.634854}
+    - {x: 2.605845, y: 4.5816374}
+    - {x: -1.3547482, y: 5.8883657}
+    - {x: -3.307701, y: 5.4223385}
+    - {x: -6.4121304, y: 1.0296865}
+    - {x: -6.0915165, y: -2.593696}
+    - {x: -2.2967744, y: -5.6846213}
+    - {x: -0.2354579, y: -5.773629}
+    - {x: 2.3173926, y: -4.972885}
+    - {x: 6.1615467, y: -0.4853847}
+    meshScale: 10
+  - mesh: {fileID: 7053893933298424306, guid: 78499d97230fe0748a3fc15499c77d48, type: 3}
+    colliderShape:
+    - {x: 5.8558254, y: 0.8061404}
+    - {x: 5.716141, y: 1.8695816}
+    - {x: 5.211844, y: 2.5174072}
+    - {x: 4.269745, y: 3.064236}
+    - {x: 1.2189753, y: 3.2367935}
+    - {x: -1.2266912, y: 4.6823635}
+    - {x: -2.384394, y: 4.3754168}
+    - {x: -3.2866879, y: 3.0688624}
+    - {x: -3.0058463, y: 1.2672455}
+    - {x: -3.5772095, y: -0.024846196}
+    - {x: -4.9622216, y: -0.86149955}
+    - {x: -5.9246078, y: -2.0894089}
+    - {x: -5.7973323, y: -3.5182757}
+    - {x: -2.0656295, y: -4.234713}
+    - {x: 0.9989408, y: -4.6152124}
+    - {x: 3.273743, y: -4.0505476}
+    - {x: 3.8723676, y: -3.2918308}
+    - {x: 4.6275845, y: -0.4643712}
+    meshScale: 10
+  minMaxSpeed: {x: 15, y: 75}
+  spawnRects:
+  - serializedVersion: 2
+    x: 40
+    y: 60
+    width: 100
+    height: 30
+  - serializedVersion: 2
+    x: 40
+    y: -90
+    width: 100
+    height: 30
+  - serializedVersion: 2
+    x: 140
+    y: -90
+    width: 20
+    height: 180
+  targetRect:
+    serializedVersion: 2
+    x: -70
+    y: -40
+    width: 100
+    height: 80
+  aliveRect:
+    serializedVersion: 2
+    x: -125
+    y: -60
+    width: 250
+    height: 120

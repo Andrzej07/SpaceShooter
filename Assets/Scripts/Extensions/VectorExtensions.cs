@@ -2,7 +2,7 @@
 
 namespace SpaceShooter
 {
-	public static class Extensions
+	public static class VectorExtensions
 	{
 		public static Vector3 WithZ(this Vector3 vector, float z)
 		{
@@ -21,6 +21,11 @@ namespace SpaceShooter
 		public static float ComponentsAverage(this Vector2 vector)
 		{
 			return (vector.x + vector.y) / 2;
+		}
+
+		public static float RandomBetween(this Vector2 vector2)
+		{
+			return Random.Range(vector2.x, vector2.y);
 		}
 	}
 }

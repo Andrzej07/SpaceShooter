@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace SpaceShooter
 {
-	public class Projectile : MonoBehaviour
+	public class Projectile : MonoBehaviour, IPooledObject<Projectile>
 	{
 		[SerializeField]
 		private new Rigidbody2D rigidbody2D;
@@ -11,9 +12,10 @@ namespace SpaceShooter
 		[SerializeField]
 		private Vector2 speed;
 
-		private ProjectilePool ownerPool;
 		private float endOfLifeTime;
 		private ObjectTags tagsToIgnore;
+		
+		public Action<Projectile> ReturnToPoolAction { get; set; }
 		
 		public void CreateFromData(ProjectileCreationData projectileCreationData)
 		{
@@ -21,11 +23,6 @@ namespace SpaceShooter
 			rigidbody2D.position = projectileCreationData.startPosition;
 			rigidbody2D.linearVelocity = speed;
 			endOfLifeTime = Time.time + lifespan;
-		}
-
-		public void SetPool(ProjectilePool pool)
-		{
-			ownerPool = pool;
 		}
 
 		private void FixedUpdate()
@@ -46,13 +43,18 @@ namespace SpaceShooter
 					return;
 				}
 			}
+
+			if (otherRigidbody.TryGetComponent(out IProjectileHitReceiver hitReceiver))
+			{
+				hitReceiver.OnHit(this);
+			}
 			
 			DestroyBullet();
 		}
 
 		private void DestroyBullet()
 		{
-			ownerPool.Release(this);
+			ReturnToPoolAction?.Invoke(this);
 		}
 	}
 }
