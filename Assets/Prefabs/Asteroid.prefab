@@ -59,13 +59,13 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2787943446765086684}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 26.952715
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0.1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -124,11 +124,28 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
+    - - {x: 1.5901313, y: 1.9476811}
+      - {x: 0.8753077, y: 2.9748297}
+      - {x: -0.004027188, y: 2.924149}
+      - {x: -0.9343528, y: 2.6729078}
+      - {x: -1.1744173, y: 2.66985}
+      - {x: -1.321985, y: 2.5770354}
+      - {x: -1.9269545, y: 2.4423413}
+      - {x: -2.018928, y: 2.2542384}
+      - {x: -2.900088, y: 1.5846361}
+      - {x: -3.1636472, y: 0.5072582}
+      - {x: -2.7026677, y: -0.88956934}
+      - {x: -2.35912, y: -1.4649118}
+      - {x: -1.9593115, y: -2.4133224}
+      - {x: -1.5988299, y: -2.840466}
+      - {x: -1.0890603, y: -3.005402}
+      - {x: -0.17328405, y: -2.9636881}
+      - {x: 0.6971498, y: -2.5400903}
+      - {x: 1.8003247, y: -2.1322384}
+      - {x: 2.3773248, y: -1.8475822}
+      - {x: 2.8524034, y: -1.2522666}
+      - {x: 3.1577682, y: -0.5139047}
+      - {x: 3.0185728, y: 0.44209003}
   m_UseDelaunayMesh: 0
 --- !u!1 &7265763464248259514
 GameObject:
@@ -170,7 +187,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7265763464248259514}
-  m_Mesh: {fileID: 7053893933298424306, guid: 78499d97230fe0748a3fc15499c77d48, type: 3}
+  m_Mesh: {fileID: 1350605415201388534, guid: 78499d97230fe0748a3fc15499c77d48, type: 3}
 --- !u!23 &3694543235354565265
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -46,8 +46,13 @@ namespace SpaceShooter.Editor
 
 		private void OnGUI()
 		{
-			bool newValue = EditorGUILayout.Toggle("Draw rects", drawRectsEnabled);
+			bool newValue = EditorGUILayout.Toggle("Draw rects enabled", drawRectsEnabled);
 
+			if (drawRectsEnabled)
+			{
+				GUILayout.Label("Editable rects are being drawn in the scene view.");
+			}
+			
 			if (newValue != drawRectsEnabled)
 			{
 				drawRectsEnabled = newValue;

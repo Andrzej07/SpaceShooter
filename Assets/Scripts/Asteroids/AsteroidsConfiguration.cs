@@ -11,11 +11,15 @@ namespace SpaceShooter
 		[SerializeField]
 		private Vector2 minMaxSpeed;
 		[SerializeField]
+		private Vector2 angularVelocityRange;
+		[SerializeField]
 		private Rect[] spawnRects;
 		[SerializeField]
 		private Rect targetRect;
 		[SerializeField]
 		private Rect aliveRect;
+		[SerializeField]
+		private Vector2 objectScaleRange = Vector2.one;
 
 		public Rect AliveRect => aliveRect;
 		public Rect TargetRect => targetRect;
@@ -34,6 +38,11 @@ namespace SpaceShooter
 			return minMaxSpeed.RandomBetween();
 		}
 
+		public float GetRandomRotationSpeed()
+		{
+			return angularVelocityRange.RandomBetween();
+		}
+
 		public Vector2 GetRandomStartPosition()
 		{
 			return spawnRects.GetRandomElement().GetRandomPositionInRect();
@@ -42,6 +51,11 @@ namespace SpaceShooter
 		public Vector2 GetRandomDirection(Vector2 startPosition)
 		{
 			return (targetRect.GetRandomPositionInRect() - startPosition).normalized;
+		}
+
+		public float GetRandomScale()
+		{
+			return objectScaleRange.RandomBetween();
 		}
 	}
 

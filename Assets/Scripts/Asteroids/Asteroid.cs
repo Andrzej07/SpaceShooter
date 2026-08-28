@@ -33,8 +33,11 @@ namespace SpaceShooter
 		public void InitializeRandom()
 		{
 			enteredAliveRect = false;
+
+			transform.localScale = Vector3.one * configuration.GetRandomScale();
 			Vector2 startPosition = configuration.GetRandomStartPosition();
 			rigidbody2D.position = startPosition;
+			rigidbody2D.angularVelocity = configuration.GetRandomRotationSpeed();
 			rigidbody2D.linearVelocity = configuration.GetRandomSpeed() * configuration.GetRandomDirection(startPosition);
 			
 			var preset = configuration.GetRandomPreset();
