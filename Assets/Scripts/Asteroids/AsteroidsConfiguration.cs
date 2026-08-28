@@ -20,6 +20,9 @@ namespace SpaceShooter
 		public Rect AliveRect => aliveRect;
 		public Rect TargetRect => targetRect;
 		public Rect[] SpawnRects => spawnRects;
+		public static string EDITOR_AliveRectFieldName => nameof(aliveRect);
+		public static string EDITOR_TargetRectFieldName => nameof(targetRect);
+		public static string EDITOR_SpawnRectsFieldName => nameof(spawnRects);
 
 		public AsteroidPreset GetRandomPreset()
 		{
