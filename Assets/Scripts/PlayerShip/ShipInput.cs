@@ -6,25 +6,16 @@ namespace SpaceShooter
 	public class ShipInput : MonoBehaviour
 	{
 		[SerializeField]
-		private string moveActionName;
+		private InputActionReference moveActionRef;
 		[SerializeField]
-		private string shootActionName;
-		
-		private InputAction moveAction;
-		private InputAction shootAction;
-
-		public void Initialize()
-		{
-			moveAction = InputSystem.actions.FindAction(moveActionName);
-			shootAction = InputSystem.actions.FindAction(shootActionName);
-		}
+		private InputActionReference shootActionRef;
 
 		public ShipInputData GetCurrentInput()
 		{
 			var result = new ShipInputData
 			{
-				move = moveAction.ReadValue<Vector2>(),
-				isFiring = shootAction.IsPressed()
+				move = moveActionRef.action.ReadValue<Vector2>(),
+				isFiring = shootActionRef.action.IsPressed()
 			};
 
 			return result;

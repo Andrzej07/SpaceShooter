@@ -23,8 +23,6 @@ namespace SpaceShooter
 
 		private void Start()
 		{
-			shipInput.Initialize();
-			
 			InitializeComponents(visualComponents);
 			InitializeComponents(simulationComponents);
 
