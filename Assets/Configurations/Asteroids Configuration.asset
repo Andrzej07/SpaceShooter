@@ -92,7 +92,7 @@ MonoBehaviour:
     - {x: 2.8524034, y: -1.2522666}
     - {x: 3.1577682, y: -0.5139047}
     - {x: 3.0185728, y: 0.44209003}
-    meshScale: 10
+    meshScale: 15
   - mesh: {fileID: 4752333041851442042, guid: 78499d97230fe0748a3fc15499c77d48, type: 3}
     colliderShape:
     - {x: -0.20324135, y: 2.6699247}

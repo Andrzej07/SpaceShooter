@@ -1,10 +1,14 @@
 ﻿using System;
+using PrimeTween;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace SpaceShooter
 {
 	public class Asteroid : MonoBehaviour, IPooledObject<Asteroid>, IProjectileHitReceiver
 	{
+		[SerializeField]
+		private Transform meshTransform;
 		[SerializeField]
 		private AsteroidsConfiguration configuration;
 		[SerializeField]
@@ -13,25 +17,36 @@ namespace SpaceShooter
 		private new PolygonCollider2D collider;
 		[SerializeField]
 		private new Rigidbody2D rigidbody2D;
+		[SerializeField]
+		private VisualEffect destructionEffect;
+		[SerializeField]
+		private float vfxLifetime;
 
 		private bool enteredAliveRect;
+		private Tween? destroyTween; 
 		
 		public Action<Asteroid> ReturnToPoolAction { get; set; }
 
 		private void FixedUpdate()
 		{
+			if (destroyTween != null)
+			{
+				return;
+			}
+			
 			bool isInRect = configuration.AliveRect.Contains(rigidbody2D.position);
 			
 			enteredAliveRect |= isInRect;
 
 			if (enteredAliveRect && isInRect == false)
 			{
-				DestroyAsteroid();
+				DestroyAsteroid(false);
 			}
 		}
 
 		public void InitializeRandom()
 		{
+			destructionEffect.Stop();
 			enteredAliveRect = false;
 
 			transform.localScale = Vector3.one * configuration.GetRandomScale();
@@ -39,6 +54,7 @@ namespace SpaceShooter
 			rigidbody2D.position = startPosition;
 			rigidbody2D.angularVelocity = configuration.GetRandomRotationSpeed();
 			rigidbody2D.linearVelocity = configuration.GetRandomSpeed() * configuration.GetRandomDirection(startPosition);
+			collider.enabled = true;
 			
 			var preset = configuration.GetRandomPreset();
 
@@ -57,14 +73,30 @@ namespace SpaceShooter
 			meshFilter.transform.localScale = Vector3.one * preset.MeshScale;
 		}
 
-		private void DestroyAsteroid()
+		private void DestroyAsteroid(bool playVFX)
 		{
-			ReturnToPoolAction?.Invoke(this);
+			if (playVFX == false)
+			{
+				ReturnToPoolAction?.Invoke(this);
+				return;
+			}
+
+			collider.enabled = false;
+			rigidbody2D.linearVelocity = Vector2.zero;
+			Tween.Scale(meshTransform, Vector3.zero, vfxLifetime / 2);
+			destroyTween = Tween.Delay(this, vfxLifetime, OnDestroyVFXComplete);
+			destructionEffect.Play();
 		}
-		
+
+		private void OnDestroyVFXComplete(Asteroid asteroid)
+		{
+			ReturnToPoolAction?.Invoke(asteroid);
+			destroyTween = default;
+		}
+
 		public void OnHit(Projectile projectile)
 		{
-			DestroyAsteroid();
+			DestroyAsteroid(true);
 		}
 	}
 }
