@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Global%20Styles%20Sheet.uss?fileID=7433441132597879392&amp;guid=77d2b1190e5b8c54f882fb88cc61b465&amp;type=3#Global Styles Sheet" />
+    <ui:Label text="Uninitialized text" data-source="project://database/Assets/UI/DestroyedAsteroidsCountLabelData.asset?fileID=11400000&amp;guid=d114d4899401c524aa70d04eb777502d&amp;type=2#DestroyedAsteroidsCountLabelData" data-source-path="labelContent" class="hud-label">
+        <Bindings>
+            <ui:DataBinding property="text" binding-mode="ToTarget" />
+        </Bindings>
+    </ui:Label>
+</ui:UXML>

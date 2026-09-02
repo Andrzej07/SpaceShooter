@@ -7,6 +7,8 @@ namespace SpaceShooter
 {
 	public class Asteroid : MonoBehaviour, IPooledObject<Asteroid>, IProjectileHitReceiver
 	{
+		public static event Action AsteroidShotAndDestroyed;
+		
 		[SerializeField]
 		private Transform meshTransform;
 		[SerializeField]
@@ -97,6 +99,7 @@ namespace SpaceShooter
 		public void OnHit(Projectile projectile)
 		{
 			DestroyAsteroid(true);
+			AsteroidShotAndDestroyed?.Invoke();
 		}
 	}
 }
