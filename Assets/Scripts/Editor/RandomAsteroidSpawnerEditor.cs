@@ -1,10 +1,10 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace SpaceShooter.Editor
+namespace SpaceShooter
 {
 	[CustomEditor(typeof(RandomAsteroidSpawner))]
-	public class RandomAsteroidSpawnerEditor : UnityEditor.Editor
+	public class RandomAsteroidSpawnerEditor : Editor
 	{
 		private RandomAsteroidSpawner spawner;
 		private int lastTimerValue;

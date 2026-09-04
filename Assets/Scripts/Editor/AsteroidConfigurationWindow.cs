@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace SpaceShooter.Editor
+namespace SpaceShooter
 {
 	public class AsteroidConfigurationWindow : EditorWindow
 	{

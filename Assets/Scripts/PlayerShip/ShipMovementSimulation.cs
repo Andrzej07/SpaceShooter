@@ -6,7 +6,7 @@ namespace SpaceShooter
 	public class ShipMovementSimulation : ShipSimulationComponent
 	{
 		[SerializeField]
-		private new Rigidbody2D rigidbody;
+		private Rigidbody2D rigidbody;
 		[SerializeField]
 		private float speed;
 		[SerializeField]

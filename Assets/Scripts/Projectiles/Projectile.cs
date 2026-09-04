@@ -6,7 +6,7 @@ namespace SpaceShooter
 	public class Projectile : MonoBehaviour, IPooledObject<Projectile>
 	{
 		[SerializeField]
-		private new Rigidbody2D rigidbody2D;
+		private Rigidbody2D rigidbody2D;
 		[SerializeField]
 		private float lifespan;
 		[SerializeField]

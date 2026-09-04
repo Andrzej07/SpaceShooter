@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace SpaceShooter
 {
@@ -8,18 +7,18 @@ namespace SpaceShooter
         private static readonly int PROPERTY_POSITION = Shader.PropertyToID("_Position");
         
         [SerializeField]
-        private Image targetImage;
+        private Skybox target;
         [SerializeField]
         private Vector2 speed;
 
         private Vector2 currentValue;
         private Material materialInstance;
-        
+
         private void Start()
         {
-            materialInstance = new(targetImage.material);
-            targetImage.material = materialInstance;
+            materialInstance = new(target.material);
             materialInstance.name += " BackgroundScroller";
+            target.material = materialInstance;
         }
 
         private void OnDestroy()

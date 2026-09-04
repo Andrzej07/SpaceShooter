@@ -16,9 +16,9 @@ namespace SpaceShooter
 		[SerializeField]
 		private MeshFilter meshFilter;
 		[SerializeField]
-		private new PolygonCollider2D collider;
+		private PolygonCollider2D collider;
 		[SerializeField]
-		private new Rigidbody2D rigidbody2D;
+		private Rigidbody2D rigidbody2D;
 		[SerializeField]
 		private VisualEffect destructionEffect;
 		[SerializeField]
